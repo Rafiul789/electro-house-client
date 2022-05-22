@@ -1,10 +1,11 @@
 
 import './App.css';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <div className="App">
-     <h1>Hello this is electro-house</h1>
+    <div >
+     <Navbar></Navbar>
     </div>
   );
 }
