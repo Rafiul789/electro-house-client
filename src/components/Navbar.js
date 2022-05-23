@@ -1,7 +1,16 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { NavLink } from 'react-router-dom';
 import logo from '../assets/images/Electro House-logo1.png';
+import auth from '../firebase.init';
+import { signOut } from 'firebase/auth';
 const Navbar = ({children}) => {
+
+  const [user, loading, error] = useAuthState(auth);
+
+  const logout = () => {
+    signOut(auth);
+  };
     return (
         <div className="drawer drawer-end ">
   <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
@@ -25,8 +34,8 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"  to='/myorders' >My Orders</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/addreview'  >Add  Review</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/myprofile' >My Proflie</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/login' >Login</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/signup'  >Sign Up</NavLink></li>
+          <li> {user?<button onClick={logout}  class="btn btn-active">Sign Out</button> :  <NavLink className="rounded-lg"   to='/login'  >Login</NavLink> }</li> 
+          
         
         </ul>
       </div>
@@ -44,8 +53,8 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"   to='/myorders' >My Orders</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/addreview'  >Add  Review</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/myprofile'  >My Proflie</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/login'  >Login</NavLink></li> 
-          <li><NavLink className="rounded-lg"   to='/signup'  >Sign Up</NavLink></li>
+          <li> {user?<button onClick={logout}  class="btn btn-active">Sign Out</button> :  <NavLink className="rounded-lg"   to='/login'  >Login</NavLink> }</li> 
+          
     </ul>
     
   </div>
