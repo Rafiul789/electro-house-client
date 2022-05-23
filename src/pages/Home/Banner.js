@@ -20,7 +20,7 @@ const Banner = () => {
     </svg>
   </div>
 
-    <h3 className="text-3xl font-bold text-white animate-ping">Find Your Desired Parts</h3> </div>
+    </div>
    
 
 
