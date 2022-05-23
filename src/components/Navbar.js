@@ -7,8 +7,8 @@ const Navbar = ({children}) => {
   <input id="my-drawer-3" type="checkbox" className="drawer-toggle" /> 
   <div className="drawer-content flex flex-col">
    
-    <div className="w-full navbar bg-gray-800 lg:px-10 ">
-    <div className="flex-1 px-2 mx-2"> <img  className="w-fit" src={logo} alt="logo"></img></div>
+    <div className="w-full navbar bg-gray-800 lg:px-10 py-5 ">
+    <div className="flex-1 px-2 mx-2 "> <img  className="w-fit  pb-2 " src={logo} alt="logo"></img></div>
 
       <div className="flex-none lg:hidden   ">
         <label htmlFor="my-drawer-3" className="btn btn-square btn-primary">
