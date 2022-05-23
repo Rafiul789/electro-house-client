@@ -1,19 +1,33 @@
 import React from 'react';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle,useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
+import Loading from './Loading';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
 
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,   user,   loading,  error, ]= useSignInWithEmailAndPassword(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
-
-
-if(user){
-    console.log(user)
+   let SigninError;
+if(loading||googleloading){
+  return   <Loading></Loading>
+}
+if(error||googleerror){
+    SigninError =<p className="text-red-600">{error?.message||googleerror?.message}</p>
 }
 
+if(user||googleuser){
+    console.log(googleuser)
+} 
+const onSubmit = data =>{console.log(data) 
+    signInWithEmailAndPassword(data.email,data.password)
+
+
+} ;
 
 
     return (
@@ -50,13 +64,19 @@ message:'Provide a valid email'  }
      {errors.password?.type === 'required' && <span className="text-red-600">{errors.password.message}</span>}
                             {errors.password?.type === 'minLength' && <span className=" text-red-500">{errors.password.message}</span>} </div>
       
-      
+      {SigninError}
       <input type='submit' value="login"  className="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]"/>
     </form>
     
     <div className="flex flex-col space-y-1">
       
       <p className="font-bold text-[#0070ba]">Forgot password?</p>
+     
+    </div>
+    <div className="flex flex-col space-y-1">
+      
+      <p className="font-semibold text-[#0070ba]">New To Electro House?  <Link className="text-red-500"    to='/signup'>Create New Account</Link>  </p>
+     
     </div>
     <div className="flex flex-col space-y-5 w-full">
      

@@ -4,6 +4,7 @@ import './App.css';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import NotFound from './components/NotFound';
+import Signup from './components/Signup';
 import AddReview from './pages/AddReview';
 import Blog from './pages/Blog';
 import Banner from './pages/Home/Banner';
@@ -16,7 +17,7 @@ import MyProfile from './pages/MyProfile';
 function App() {
   return (
     < >
-     <Navbar> <Routes>  <Route path='/' element={<Home></Home>}  ></Route>    <Route path='/blog' element={<Blog></Blog>}></Route>  <Route path='/myportfolio' element={<Myportfolio></Myportfolio>}></Route> <Route path='/myorders' element={<MyOrder></MyOrder>}></Route> <Route path='/addreview' element={<AddReview></AddReview>}></Route> <Route path='/myprofile' element={<MyProfile></MyProfile>}></Route> <Route path='/login' element={<Login></Login>}></Route>   <Route path='*' element={<NotFound></NotFound>}></Route>   </Routes>  </Navbar>
+     <Navbar> <Routes>  <Route path='/' element={<Home></Home>}  ></Route>    <Route path='/blog' element={<Blog></Blog>}></Route>  <Route path='/myportfolio' element={<Myportfolio></Myportfolio>}></Route> <Route path='/myorders' element={<MyOrder></MyOrder>}></Route> <Route path='/addreview' element={<AddReview></AddReview>}></Route> <Route path='/myprofile' element={<MyProfile></MyProfile>}></Route> <Route path='/login' element={<Login></Login>}></Route> <Route path='/signup' element={<Signup></Signup>} ></Route>   <Route path='*' element={<NotFound></NotFound>}></Route>   </Routes>  </Navbar>
     </>
   );
 }
