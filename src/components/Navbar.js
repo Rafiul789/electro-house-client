@@ -25,6 +25,7 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"  to='/myorders' >My Orders</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/addreview'  >Add  Review</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/myprofile' >My Proflie</NavLink></li>
+          <li><NavLink className="rounded-lg"   to='/login' >Login</NavLink></li>
         </ul>
       </div>
     </div>
@@ -41,6 +42,7 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"   to='/myorders' >My Orders</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/addreview'  >Add  Review</NavLink></li>
           <li><NavLink className="rounded-lg"   to='/myprofile'  >My Proflie</NavLink></li>
+          <li><NavLink className="rounded-lg"   to='/login'  >Login</NavLink></li>
       
     </ul>
     

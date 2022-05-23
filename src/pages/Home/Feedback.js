@@ -7,7 +7,7 @@ const Feedback = () => {
 
 <section class="mb-32 text-gray-800 text-center">
 
-  <h2 class="text-3xl font-bold mb-12">Customers Feedback</h2>
+  <h2 class="text-3xl font-bold mb-12">Reviews</h2>
 
   <div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12">
     <div class="mb-12 md:mb-0">
