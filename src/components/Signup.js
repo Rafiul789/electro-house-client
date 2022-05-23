@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSignInWithGoogle,useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithGoogle,useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../firebase.init';
@@ -8,22 +8,27 @@ const Signup = () => {
 
     const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
     const [
-        signInWithEmailAndPassword,   user,   loading,  error, ]= useSignInWithEmailAndPassword(auth);
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
 
     const { register, formState: { errors }, handleSubmit } = useForm();
-   let SigninError;
+   let SignupError;
 if(loading||googleloading){
   return   <Loading></Loading>
 }
 if(error||googleerror){
-    SigninError =<p className="text-red-600">{error?.message||googleerror?.message}</p>
+    SignupError =<p className="text-red-600">{error?.message||googleerror?.message}</p>
 }
 
 if(user||googleuser){
     console.log(googleuser)
+    console.log(user)
 } 
 const onSubmit = data =>{console.log(data) 
-    signInWithEmailAndPassword(data.email,data.password)
+    createUserWithEmailAndPassword(data.email,data.password)
 
 
 } ;
@@ -39,6 +44,16 @@ const onSubmit = data =>{console.log(data)
           <div className="p-10 border-[1px] mt-10 border-slate-200 rounded-md flex flex-col items-center space-y-3">
           <h1 className="text-4xl text-center font-semibold mb-5" >Sign Up</h1>
           <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="flex flex-col space-y-1  p-5"  > <input type="text" className="border-[1px] border-slate-500 rounded-sm w-80 p-5 " placeholder="Name"   {...register("name", {
+                  required:{
+                      value:true,
+                      message:'Name is required'
+                  },
+          
+          })} />
+              {errors.name?.type === 'required' && <span className="text-red-600"  >{errors.name.message} </span> }   
+               
+             </div>
               <div className="flex flex-col space-y-1 mb-5 p-5"  > <input className="border-[1px] border-slate-500 rounded-sm w-80 p-5 mb-5" placeholder="E-Mail or Phone number"   {...register("email", {
                   required:{
                       value:true,
@@ -64,7 +79,7 @@ const onSubmit = data =>{console.log(data)
              {errors.password?.type === 'required' && <span className="text-red-600">{errors.password.message}</span>}
                                     {errors.password?.type === 'minLength' && <span className=" text-red-500">{errors.password.message}</span>} </div>
               
-              {SigninError}
+              {SignupError}
               <input type='submit' value="Sign Up"  className="w-full bg-[#0070ba] rounded-3xl p-3 text-white font-bold transition duration-200 hover:bg-[#003087]"/>
             </form>
             
