@@ -3,9 +3,11 @@ import { useSignInWithGoogle,useSignInWithEmailAndPassword } from 'react-firebas
 import auth from '../firebase.init';
 import { useForm } from "react-hook-form";
 import Loading from './Loading';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
+
+const navigate=useNavigate()
 
     const [signInWithGoogle, googleuser, googleloading, googleerror] = useSignInWithGoogle(auth);
     const [
@@ -83,7 +85,7 @@ message:'Provide a valid email'  }
       <div className="flex items-center justify-center border-t-[1px] border-t-slate-300 w-full relative">
         <div className="-mt-1 font-bod bg-white px-5 absolute">Or</div>
       </div>
-      <button className="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200">Sign Up</button>
+      <button onClick={()=> navigate('/signup')}  className="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200">Sign Up</button>
 
       <button onClick={()=>signInWithGoogle()}    className="w-full border-blue-900 hover:border-[#003087] hover:border-[2px] border-[1px] rounded-3xl p-3 text-[#0070ba] font-bold transition duration-200">Continue With Google</button>
     </div>

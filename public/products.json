@@ -1,0 +1,70 @@
+[
+    {
+      "id": 1,
+     
+      "name": "Rubycon Capacitors",
+      "img": "https://i.ibb.co/CmbMzf5/Rubycon-Capacitors.jpg",
+      "price": 2.35,
+      "description":"capacitance:6,800 uf voltage: 63 v tolerance: - temperature85 lead type: snap in package: bulk item per pack:  width:1.38in,length:1.97in"   ,
+    "minimumquantity":6,
+  "availablequantity":20
+     
+    }, 
+    {
+        "id": 2,
+       
+        "name": "Gigabyte H410M S2H",
+        "img": "https://i.ibb.co/gWjtGws/gigabyte-Motherboard.jpg",
+        "price": 90,
+        "description":"Intel Socket LGA1200 for 10th Gen Processors Dual Channel Non-ECC Unbuffered DDR4, 2 DIMMs   8-Channel HD Audio with High-Quality Audio Capacitors   Ultra-Fast M.2 with PCIe Gen3 X2 & SATA Interface"   ,
+      "minimumquantity":1,
+    "availablequantity":20
+       
+      },
+    {
+        "id": 3,
+       
+        "name": "Transistor NPN BC547 45V 100mA",
+        "img": "https://i.ibb.co/9NvG1QT/npn-Transistor.jpg",
+        "price": 4,
+        "description":"Package Type:TO-92 Transistor Type:NPN Max Collector Current(IC):100mA   Max Collector-Emitter Voltage (VCE):45V Max Collector-Base Voltage (VCB):50V Max Emitter-Base Voltage (VEBO):6V"   ,
+      "minimumquantity":3,
+    "availablequantity":300
+       
+      },
+    {
+        "id": 4,
+       
+        "name": "Fuse 13A 250V Ceramic",
+        "img": "https://i.ibb.co/GQVYG1K/fuse.jpg",
+        "price": 5,
+        "description": "Ceramic fuse overall dimensions: 6 x 25mm/0.24 x 1 D*L Fast acting design protects crucial electrical system componentsandwiring. Rated Voltage:250 Volt;" ,
+      "minimumquantity":6,
+    "availablequantity":150
+       
+      },
+    {
+        "id": 5,
+       
+        "name": "HP Probook 400 G1 Series Laptop Battery",
+        "img": "https://i.ibb.co/9wg2FZH/laptop-Battery.jpg",
+        "price": 30,
+        "description": "P Probook 400 G1 Series Laptop Battery is A Grade Battery. This laptop battery featured with 11.1V A Grade Battery Voltage, 5200mAh Capacity and 6 cell. " ,
+      "minimumquantity":2,
+    "availablequantity":18
+       
+      },
+    {
+        "id": 6,
+       
+        "name": "AMD Ryzen 5 Pro 4650G Processor",
+        "img": "https://i.ibb.co/vZL9bXy/ryzen-5.jpg",
+        "price": 120,
+        "description": "The AMD Ryzen 5 Pro 4650G Processor with Radeon Graphics is built in intelligence featuring 6 processor cores, 12 threads, and an astonishingly efficient 45-65W TDP. In this processor, It stands with 3.7GHz Base Clock, 4.2GHz Max Boost Clock, 3MB L2 Cache, 8MB L3 Cache with AM4 Package and TSMC 7nm FinFET CMOS " ,
+      "minimumquantity":1,
+    "availablequantity":20
+       
+      }
+
+
+  ]
