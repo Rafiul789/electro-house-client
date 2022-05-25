@@ -32,9 +32,7 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"  to='/' >Home</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/blog' >Blog</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/myportfolio' >My Portfolio</NavLink></li>
-          <li><NavLink className="rounded-lg"  to='/myorders' >My Orders</NavLink></li>
-          <li><NavLink className="rounded-lg"  to='/addreview'  >Add  Review</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/myprofile' >My Proflie</NavLink></li>
+         
           <li> {user? <NavLink className="rounded-lg"  to='/dashboard' class="btn btn-active text-white">Dashboard</NavLink>  : ''}</li>
           <li> {user?<button onClick={logout}  class="btn btn-active">Sign Out</button> :  <NavLink className="rounded-lg"   to='/login'  >Login</NavLink> }</li> 
           
@@ -52,9 +50,7 @@ const Navbar = ({children}) => {
           <li><NavLink className="rounded-lg"   to='/'  >Home</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/blog' >Blog</NavLink></li>
           <li><NavLink className="rounded-lg"  to='/myportfolio'  >My Portfolio</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/myorders' >My Orders</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/addreview'  >Add  Review</NavLink></li>
-          <li><NavLink className="rounded-lg"   to='/myprofile'  >My Proflie</NavLink></li>
+          
          <li> {user? <NavLink className="rounded-lg"  to='/dashboard' class="btn btn-active text-white">Dashboard</NavLink>  : ''}</li>
           <li> {user?<button onClick={logout}  class="btn btn-active text-white">Sign Out</button> :  <NavLink className="rounded-lg"   to='/login'  >Login</NavLink> }</li> 
           
