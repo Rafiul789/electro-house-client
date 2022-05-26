@@ -18,13 +18,43 @@ const Purchase = () => {
     const inputSubmit=()=>{
         if(input<product.minimumquantity){
             toast("Order minimum Quantity!")
+            
         }
         if(input>product.availablequantity){
             toast('Order Availble Quantity')
+
     }}
 
     const handleOrder = event =>{
-        event.preventDefault();}
+        event.preventDefault();
+    const order={Order:product._id,
+    name:product.name,
+     image:product.image,
+     description:product.description,
+    price:product.price,
+    customerName:user.displayName,
+    email:user.email,
+    phone:event.target.phone.value,
+    quantity:event.target.quantity.value
+
+
+    }
+
+    fetch('http://localhost:5000/order',{
+        method: 'POST',
+        headers:{
+            'content-type':'application/json'
+            },
+          body:JSON.stringify(order)  
+    })
+    .then(res=> res.json())
+    .then(data=>{
+        console.log(data);
+        toast("Order is successfully placed!")
+
+    })
+    
+    }
 
 
 
@@ -53,19 +83,19 @@ const Purchase = () => {
 </div>
 
     </div> 
-<div className="bg-gray-800 mx-5 p-5"> 
+<div className="bg-green-400 mx-5 p-5"> 
 
      
      <form onSubmit={handleOrder} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
      
 
-                    <input type="number" placeholder="Quantity" className="input input-bordered w-full max-w-xs" value={input} onChange={event => setInput(event.target.value)} />  
+                    <input type="number" name="quantity" placeholder="Quantity" className="input input-bordered w-full max-w-xs" value={input} onChange={event => setInput(event.target.value)} />  
 
                      <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" /> 
                         
                         <input type="email" name="email" disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
-                        <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" />
-                        <input onClick={inputSubmit} type="submit" value="Order" className="btn btn-secondary w-full max-w-xs" />
+                        <input type="number" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" /><input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" />
+                        <input onClick={inputSubmit} type="submit" disabled={input<product.minimumquantity||input>product.availablequantity} value="Order" className="btn btn-secondary w-full max-w-xs" />
                     </form>
 
 
