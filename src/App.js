@@ -17,7 +17,7 @@ import Tools from './pages/Home/Tools';
 import Myportfolio from './pages/My-Portfolio';
 import MyOrder from './pages/Home/Dashboard/MyOrders';
 import MyProfile from './pages/Home/Dashboard/MyProfile';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     < >
@@ -26,6 +26,8 @@ function App() {
        <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
        
        </Route> <Route path='/purchase/:id' element={  <RequireAuth><Purchase></Purchase> </RequireAuth> }></Route>      <Route path='*' element={<NotFound></NotFound>}></Route>   </Routes>  </Navbar>
+
+       <ToastContainer />
     </>
   );
 }
