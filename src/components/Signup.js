@@ -3,6 +3,7 @@ import { useSignInWithGoogle,useCreateUserWithEmailAndPassword,useUpdateProfile 
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../firebase.init';
+import useToken from '../hooks/useToken';
 import Loading from './Loading';
 const Signup = () => {
 
@@ -20,6 +21,8 @@ const navigate=useNavigate()
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
+const [token]=useToken(user||googleuser)
+
    let SignupError;
 if(loading||googleloading||updating){
   return   <Loading></Loading>
@@ -28,14 +31,13 @@ if(error||googleerror||updateError){
     SignupError =<p className="text-red-600">{error?.message||googleerror?.message}</p>
 }
 
-if(user||googleuser){
-    console.log(googleuser)
-    console.log(user)
+if(token||user||googleuser){
+  navigate('/')
 } 
 const onSubmit =async data =>{console.log(data) 
  await   createUserWithEmailAndPassword(data.email,data.password)
  await updateProfile({ displayName: data.name });
-navigate('/myorders')
+
 } ;
 
 
@@ -71,7 +73,7 @@ navigate('/myorders')
               {errors.email?.type === 'required' && <span className="text-red-600"  >{errors.email.message} </span> }   
               {errors.email?.type === 'pattern' && <span className="text-red-600"  >{errors.email.message} </span> }   
               
-              <input className="p-5 border-[1px] border-slate-500 rounded-sm w-80" placeholder="Password"   {...register("password",{
+              <input type="password" className="p-5 border-[1px] border-slate-500 rounded-sm w-80" placeholder="Password"   {...register("password",{
                                         required: {
                                             value: true,
                                             message: 'Password is Required'

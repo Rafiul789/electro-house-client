@@ -49,8 +49,12 @@ const Purchase = () => {
     })
     .then(res=> res.json())
     .then(data=>{
-        console.log(data);
-        toast("Order is successfully placed!")
+        if(data.success){
+            toast("Order is successfully placed!")
+        }else{
+            toast.error("Order is already placed!")
+        }
+        
 
     })
     

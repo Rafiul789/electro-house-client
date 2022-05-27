@@ -11,6 +11,7 @@ const Navbar = ({children}) => {
 
   const logout = () => {
     signOut(auth);
+    localStorage.removeItem('token');
   };
     return (
         <div className="drawer drawer-end ">
