@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ReviewDetails from './ReviewDetails';
 
 const Feedback = () => {
+  const [reviews, setReviews] = useState([]);
+
+  useEffect( ()=>{
+      fetch('http://localhost:5000/review')
+      .then(res => res.json())
+      .then(data => setReviews(data));
+  }, [])
+
     return (
            <>
             <div class="container my-24 px-6 mx-auto">
@@ -182,6 +191,10 @@ const Feedback = () => {
         </li>
       </ul>
     </div>
+   
+</div>
+<div class="grid md:grid-cols-3 gap-x-6 lg:gap-x-12"  >
+     {reviews.map(review =><ReviewDetails key={review._id} review={review}></ReviewDetails>)}
   </div>
 
 </section>
