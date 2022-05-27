@@ -5,7 +5,7 @@ const UserRow = ({user,refetch}) => {
     const{email,role}=user;
 
     const makeAdmin=()=>{
-fetch(`http://localhost:5000/user/admin/${email}`)
+fetch(`https://tranquil-bayou-94751.herokuapp.com/admin/${email}`)
 .then(res=> res.json())
 .then(data=>{
     refetch()
