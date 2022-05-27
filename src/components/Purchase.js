@@ -17,11 +17,11 @@ const Purchase = () => {
     
     const inputSubmit=()=>{
         if(input<product.minimumquantity){
-            toast("Order minimum Quantity!")
+            toast.error("Order minimum Quantity!")
             
         }
         if(input>product.availablequantity){
-            toast('Order Availble Quantity')
+            toast.error('Order Availble Quantity')
 
     }}
 
@@ -94,6 +94,8 @@ const Purchase = () => {
      
 
                     <input type="number" name="quantity" placeholder="Quantity" className="input input-bordered w-full max-w-xs" value={input} onChange={event => setInput(event.target.value)} />  
+
+{input<product.minimumquantity&& input>product.availablequantity && <p className="text-red-500">Order the exact amount! </p> }
 
                      <input type="text" name="name" disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" /> 
                         
