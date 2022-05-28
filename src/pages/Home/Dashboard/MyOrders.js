@@ -8,7 +8,7 @@ const MyOrders = () => {
     const [user] = useAuthState(auth);
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?customerName=${user.email}`)
+            fetch(`https://tranquil-bayou-94751.herokuapp.com/order?customerName=${user.email}`)
                 .then(res =>res.json()) 
                 .then(data => setOrders(data));
         }

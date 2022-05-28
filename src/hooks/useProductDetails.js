@@ -4,7 +4,7 @@ const useServiceDetail = id =>{
     const [product, setProducts] = useState({});
 
     useEffect( () =>{
-        const url = `http://localhost:5000/product/${id}`;
+        const url = `https://tranquil-bayou-94751.herokuapp.com/product/${id}`;
         
         fetch(url)
         .then(res=> res.json())
